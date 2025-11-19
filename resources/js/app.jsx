@@ -1,6 +1,11 @@
 import './bootstrap';
 import '../css/app.css';
 
+//PrimeReact
+import 'primereact/resources/primereact.min.css';
+import 'primereact/resources/themes/lara-light-cyan/theme.css';
+import 'primeicons/primeicons.css';
+
 import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';

@@ -3,10 +3,12 @@ import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import { Link } from '@inertiajs/react';
+import {Link, router, usePage} from '@inertiajs/react';
+import {rule} from "postcss";
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+    const isAdmin = usePage().props.auth.user?.is_admin;
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -24,6 +26,13 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
+
+                                {isAdmin && (
+                                    <NavLink href={route('admin.dashboard')} active={route().current('admin.dashboard')}>
+                                        Admin
+                                    </NavLink>
+                                )}
+
                             </div>
                         </div>
 
